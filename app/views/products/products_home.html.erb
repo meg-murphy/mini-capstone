@@ -1,8 +1,13 @@
 <h1> <%= @page_title %> </h1>
 
 <% @products.each do |product| %>
-<h4><%= product.name%></h4>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <h4 class="product-name"><%= product.name%></h4>
+  </div>
+</div>
+
 <h4><%= product.price %></h4>
 <h4><%= product.description %></h4>
-<h4><%= product.image %></h4>
+<img class="image-class" alt="Rails" src="<%=product.image%>"/>
 <% end %>
