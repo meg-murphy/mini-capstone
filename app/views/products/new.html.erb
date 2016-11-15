@@ -1,0 +1,25 @@
+<%= form_tag '/all_products/create', method: :post do %>
+<form class="form-inline">
+
+  <div class="form-group">
+     <%= text_field_tag :name, "Name", class: "form-control"%>
+  </div>
+
+  <div class="form-group">
+    <%= text_field_tag :price, "Price", class: "form-control"%>
+  </div>
+
+  <div class="form-group">
+    <%= text_field_tag :image, "Image", class:"form-control" %>
+  </div>
+
+    <div class="form-group">
+    <%= text_field_tag :description, "Description", class: "form-control"%>
+  </div>
+
+
+  <div>
+    <%= submit_tag "Submit", class:"btn btn-default"%>
+  </div>
+
+<% end %>

@@ -1,0 +1,29 @@
+<%= form_tag "/all_products/#{@products.id}", method: :patch do %>
+<form class="form-inline">
+
+  <div class="form-group">
+     <%= label_tag :name %>
+     <%= text_field_tag :name, @products.name, class: "form-control"%>
+  </div>
+
+  <div class="form-group">
+    <%= label_tag :price %>
+    <%= text_field_tag :price, @products.price, class: "form-control"%>
+  </div>
+
+  <div class="form-group">
+    <%= label_tag :image %>
+    <%= text_field_tag :image, @products.image, class:"form-control" %>
+  </div>
+
+    <div class="form-group">
+    <%= label_tag :description %>
+    <%= text_field_tag :description, @products.description, class: "form-control"%>
+  </div>
+
+
+  <div>
+    <%= submit_tag "Submit", class:"btn btn-default"%>
+  </div>
+
+<% end %>
