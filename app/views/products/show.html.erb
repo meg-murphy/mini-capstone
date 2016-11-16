@@ -1,7 +1,7 @@
 <h1> <%= @page_title %> </h1>
 
 
-<div class="panel panel-default">
+<div id="panel-show" class="panel panel-default">
   <div class="panel-body">
     <h4 class="product-name"><%= @products.name%></h4>
   </div>
@@ -11,3 +11,11 @@
 <h4><%= @products.description %></h4>
 
 <img class="image-class" alt="Rails" src="<%=@products.image%>"/>
+
+<div>
+  <%= link_to "Edit Product", "/all_products/#{@products.id}/edit" %>
+</div>
+
+<div>
+  <%= link_to "Delete Product", "/all_products/#{@products.id}", method: :delete %>
+</div>

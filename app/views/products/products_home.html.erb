@@ -1,13 +1,13 @@
-<h1> <%= @page_title %> </h1>
+<div class = "custom-title"> <%= @page_title %> </div>
 
 <% @products.each do |product| %>
 <div class="panel panel-default">
   <div class="panel-body">
-    <h4 class="product-name"><%= product.name%></h4>
-  </div>
-</div>
 
-<h4><%= product.price %></h4>
-<h4><%= product.description %></h4>
-<img class="image-class" alt="Rails" src="<%=product.image%>"/>
-<% end %>
+    <h4 class="product-name"><%= product.name%></h4>
+    <h4><%= product.price %></h4>
+    <h4><%= product.description %></h4>
+    <img class="image-class" alt="Rails" src="<%=product.image%>"/>
+    <% end %>
+    </div>
+</div>

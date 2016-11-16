@@ -22,4 +22,36 @@ body {
 
     background-color: #28283e;
     color: #e0ebeb;
+    font-family: 'Raleway', sans-serif;
+
+}
+
+.custom-title {
+  color: #e0ebeb;
+  font-family: 'Raleway', sans-serif;
+}
+
+.product-name {
+  color: black;
+  font-family: 'Raleway', sans-serif;
+}
+
+.panel {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+
+#panel-show {
+  width: auto;
+  height: auto;
+    .image-class {
+      width: 50%;
+      height: 50%;
+    }
+  .heading {
+    color: grey;
+  }
+
+
 }
