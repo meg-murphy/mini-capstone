@@ -49,7 +49,7 @@ class ProductsController < ApplicationController
     @products.destroy
     @products.save
 
-    flash[:delete] = "Product deleted."
+    flash[:danger] = "Product deleted."
 
     redirect_to "/all_products"
   end
