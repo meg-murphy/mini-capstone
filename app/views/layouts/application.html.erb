@@ -26,11 +26,30 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
+      <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                   <li><a href="/all_products?discount_price=price">Discount Items</a></li>
+                   <li><a href="/all_products/rando">Random Product</a></li>
+                </ul>
+
+      <%= form_tag "/search", method: :post do %>
+      <form class="form-inline">
+        <div class="form-group">
+           <%= label_tag :search %>
+           <%= text_field_tag :search, params[:search], class: "form-control"%>
+        </div>
+
+        <div>
+          <%= submit_tag "Submit", class:"btn btn-default"%>
+        </div>
+      <% end %>
+
 
       <ul class="nav navbar-nav navbar-right">
         <li><a href="/all_products/new">Add Product</a></li>
-
       </ul>
+
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
