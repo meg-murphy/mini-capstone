@@ -8,7 +8,9 @@
 <h4><%= number_to_currency(@products.price) %></h4>
 <h4><%= @products.description %></h4>
 
-<img class="image-class" alt="Rails" src="<%=@products.image%>"/>
+<% @products.images.each do |image| %>
+  <img class="image-class" alt="Rails" src="<%=image.image_link%>"/>
+<%end%>
 
 <div>
   <%= link_to "Edit Product", "/all_products/#{@products.id}/edit" %>
@@ -21,3 +23,5 @@
 <h3 class="sale-message"><%= @products.sale_message %></h3>
 <h3> <%=number_to_currency(@products.tax) %></h3>
 <h3> <%=number_to_currency(@products.total)%></h3>
+
+<h3> <%= "This product is supplied by " + @products.supplier.name %></h3>

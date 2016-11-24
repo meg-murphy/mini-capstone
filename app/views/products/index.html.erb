@@ -12,7 +12,10 @@
             <p><%= product.price %></p>
             <p><%= product.description %></p>
             <a href="/all_products/<%=product.id%>">
-              <img class="image-class" alt="Rails" src="<%=product.image%>">
+              <% product.images.each do |image| %>
+                <img class="image-class" alt="Rails" src="<%=image.image_link.first%>"/>
+              <%end%>
+
             </a>
         </div>
       </div>
