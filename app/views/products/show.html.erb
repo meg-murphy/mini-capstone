@@ -2,26 +2,26 @@
 
 
 
-<h4 class="product-name"><%= @products.name%></h4>
+<h4 class="product-name"><%= @product.name%></h4>
 
 
-<h4><%= number_to_currency(@products.price) %></h4>
-<h4><%= @products.description %></h4>
+<h4><%= number_to_currency(@product.price) %></h4>
+<h4><%= @product.description %></h4>
 
-<% @products.images.each do |image| %>
+<% @product.images.each do |image| %>
   <img class="image-class" alt="Rails" src="<%=image.image_link%>"/>
 <%end%>
 
 <div>
-  <%= link_to "Edit Product", "/all_products/#{@products.id}/edit" %>
+  <%= link_to "Edit Product", "/all_products/#{@product.id}/edit" %>
 </div>
 
 <div>
-  <%= link_to "Delete Product", "/all_products/#{@products.id}", method: :delete %>
+  <%= link_to "Delete Product", "/all_products/#{@product.id}", method: :delete %>
 </div>
 
-<h3 class="sale-message"><%= @products.sale_message %></h3>
-<h3> <%=number_to_currency(@products.tax) %></h3>
-<h3> <%=number_to_currency(@products.total)%></h3>
+<h3 class="sale-message"><%= @product.sale_message %></h3>
+<h3> <%=number_to_currency(@product.tax) %></h3>
+<h3> <%=number_to_currency(@product.total)%></h3>
 
-<h3> <%= "This product is supplied by " + @products.supplier.name %></h3>
+<h3> <%= "This product is supplied by " + @product.supplier.name %></h3>

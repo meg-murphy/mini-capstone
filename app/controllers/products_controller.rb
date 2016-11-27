@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_action :authenticate_user!, except: [:index]
 
   def products_home
     @page_title = "EVERLANE 2.0"
@@ -18,9 +19,9 @@ class ProductsController < ApplicationController
 
   def show
     if params[:id] == "rando"
-      @products = Product.all.order("RANDOM()").first
+      @product = Product.all.order("RANDOM()").first
     else
-      @products = Product.find_by(id: params[:id])
+      @product = Product.find_by(id: params[:id])
     end
   end
 
@@ -28,28 +29,30 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @products = Product.new(name: params[:name], price: params[:price], image: params[:image], description: params[:description])
-    @products.save
+    @product = Product.new(name: params[:name], price: params[:price], description: params[:description])
+    @product.save
+    @image = Image.new(image_link: params[:image_link], product_id: @product.id)
+
     flash[:success] = "New product added!"
-    redirect_to "/all_products/#{@products.id}"
+    redirect_to "/all_products/#{@product.id}"
   end
 
   def edit
-    @products = Product.find_by(id: params[:id])
+    @product = Product.find_by(id: params[:id])
   end
 
   def update
-    products = Product.find_by(id: params[:id])
-    products.assign_attributes(name: params[:name], price: params[:price], image: params[:image], description: params[:description])
-    products.save
+    product = Product.find_by(id: params[:id])
+    product.assign_attributes(name: params[:name], price: params[:price], image: params[:image], description: params[:description])
+    product.save
     flash[:success] = "Product updated!"
-    redirect_to "/all_products/#{products.id}"
+    redirect_to "/all_products/#{product.id}"
   end
 
   def destroy
-    @products = Product.find_by(id: params[:id])
-    @products.destroy
-    @products.save
+    @product = Product.find_by(id: params[:id])
+    @product.destroy
+    @product.save
     flash[:danger] = "Product deleted."
     redirect_to "/all_products"
   end
@@ -57,7 +60,6 @@ class ProductsController < ApplicationController
   def search
     @products = Product.where("name ILIKE ?", "%#{params[:search]}%")
     render :index
-
   end
 
 
