@@ -25,3 +25,18 @@
 <h3> <%=number_to_currency(@product.total)%></h3>
 
 <h3> <%= "This product is supplied by " + @product.supplier.name %></h3>
+
+
+<%= form_tag "/orders", method: :post do %>
+  <form class="form-inline">
+
+    <div class="form-group">
+      <%= text_field_tag :quantity, nil, placeholder: "Quantity", class: "form-control"%>
+      <%= hidden_field_tag :product_id, @product.id %>
+    </div>
+
+    <div>
+      <%= submit_tag "Buy Now!", class:"btn btn-default"%>
+    </div>
+
+<% end %>
