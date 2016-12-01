@@ -1,19 +1,13 @@
 class OrdersController < ApplicationController
-  def create
-    order = Order.new(user_id: current_user.id,
-                    product_id: params[:product_id],
-                    quantity: params[:quantity],
-                    subtotal: params[:subtotal],
-                    tax: params[:tax],
-                    total: params[:total])
 
-    if order.save
+  def show
+    @order = Order.find_by(id: params[:id])
 
-      flash[:success] = "Added to cart!"
-      redirect_to "/all_products"
-    else
-      flash[:warning] = "Order not completed."
-      redirect_to "/all_products"
-    end
+      if current_user.id == @order.user_id
+
+      else
+        redirect_to "/all_products"
+      end
   end
+
 end

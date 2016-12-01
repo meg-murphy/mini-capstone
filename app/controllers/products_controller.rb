@@ -8,7 +8,16 @@ class ProductsController < ApplicationController
 
   def index
     @page_title = "EVERLANE 2.0"
-    @products = Product.all
+
+    if params[:category]
+      category = Category.find_by(name: params[:category])
+      @products = category.products
+    else
+      @products = Product.all
+    end
+
+
+
     if params[:sort] && params[:sort_order]
       @products = Product.order(params[:sort] => params[:sort_order])
     end

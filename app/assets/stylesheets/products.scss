@@ -3,14 +3,14 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 h1 {
-  color: #28283e;
+  color: #262626;
   text-align: center;
   font-size: 100px;
 }
 
 .well {
   height: 400px;
-  background-color: #28283e;
+  background-color: #333333;
 
 }
 
@@ -36,18 +36,18 @@ body {
 
     font-family: 'Raleway', sans-serif;
     p {
-      color: white;
+      color: black;
     }
 
 }
 
 .custom-title {
-  color: white;
+  color: #e6e6e6;
   font-family: 'Raleway', sans-serif;
 }
 
 .product-name {
-  color: black;
+  color: #e6e6e6;
   font-family: 'Raleway', sans-serif;
 }
 
@@ -65,7 +65,7 @@ body {
       height: 50%;
     }
   .heading {
-    color: white;
+    color: #e6e6e6;
   }
 
 
@@ -77,5 +77,5 @@ img {
 }
 
 .navbar-default{
-   background-color: #28283e;
+   background-color: #333333;
 }

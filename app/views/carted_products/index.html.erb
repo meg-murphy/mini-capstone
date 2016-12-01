@@ -1,0 +1,15 @@
+<h2><%="#{@current_user.name}"%>, please review your order:</h2>
+
+<%= @carted_products.each do |carted_product| %>
+
+  <h4> <%= carted_product.product.name %></h4>
+  <p> Order ID: <%= carted_product.product.id %> </p>
+  <p> Quantity: <%= carted_product.quantity %> </p>
+  <p> Subtotal: <%=number_to_currency(carted_product.product.subtotal) %></p>
+  <p> Tax: <%=number_to_currency(carted_product.product.tax) %></p>
+  <p> Total: <%=number_to_currency(carted_product.product.total)%> </p>
+  <img class="image-class" alt="Rails" src="<%=carted_product.product.images.first.image_link%>">
+
+<% end %>
+
+<p> Your email: <%= @current_user.email %> </p>

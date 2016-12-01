@@ -10,10 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161128002341) do
+ActiveRecord::Schema.define(version: 20161201034837) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "carted_products", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "product_id"
+    t.integer  "quantity"
+    t.string   "status"
+    t.integer  "order_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "images", force: :cascade do |t|
     t.string   "image_link"
@@ -24,13 +40,18 @@ ActiveRecord::Schema.define(version: 20161128002341) do
 
   create_table "orders", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "product_id"
-    t.integer  "quantity"
     t.decimal  "subtotal"
     t.decimal  "tax"
     t.decimal  "total"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "product_categories", force: :cascade do |t|
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "product_id"
+    t.integer  "category_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -41,7 +62,6 @@ ActiveRecord::Schema.define(version: 20161128002341) do
     t.datetime "updated_at",  null: false
     t.boolean  "in_stock"
     t.integer  "supplier_id"
-    t.integer  "user_id"
   end
 
   create_table "suppliers", force: :cascade do |t|

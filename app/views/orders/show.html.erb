@@ -1,0 +1,10 @@
+<h2><%="#{@order.user.name}"%>, please review your order:</h2>
+
+<h4> <%= @order.product.name %> </h4>
+<p> Order ID: <%= @order.id %> </p>
+<p> Quantity: <%= @order.quantity %> </p>
+<p> Subtotal: <%=number_to_currency(@order.product.subtotal) %></p>
+<p> Tax: <%=number_to_currency(@order.product.tax) %></p>
+<p> Total: <%=number_to_currency(@order.product.total)%> </p>
+<p> Your email: <%= @order.user.email %> </p>
+<img class="image-class" alt="Rails" src="<%=@order.product.images.first.image_link%>">

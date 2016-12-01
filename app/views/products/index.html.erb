@@ -2,7 +2,14 @@
 
 
 <%= link_to "Sort by Price:ASC",  "/all_products?sort=price&sort_order=asc" %>
+<br>
 <%= link_to "Sort by Price:DESC",  "/all_products?sort=price&sort_order=desc" %>
+
+<% Category.all.each do |category| %>
+  <%= link_to "Category: #{category.name}", "/all_products?category=#{category.name}" %>
+<br>
+<% end %>
+
 
 <div class="row">
   <% @products.each do |product| %>
