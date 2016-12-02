@@ -28,8 +28,13 @@ Rails.application.routes.draw do
 
   post "/orders", to: "carted_products#create"
   get "/checkout", to: "carted_products#index"
+  delete "/checkout", to: "carted_products#destroy"
 
+  post "/purchased", to: "orders#create"
   get "/orders/:id", to: "orders#show"
+
+
+
 
 
 

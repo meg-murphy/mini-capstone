@@ -1,15 +1,30 @@
 <h2><%="#{@current_user.name}"%>, please review your order:</h2>
 
-<%= @carted_products.each do |carted_product| %>
+<% @carted_products.each do |carted_product| %>
 
   <h4> <%= carted_product.product.name %></h4>
   <p> Order ID: <%= carted_product.product.id %> </p>
   <p> Quantity: <%= carted_product.quantity %> </p>
-  <p> Subtotal: <%=number_to_currency(carted_product.product.subtotal) %></p>
-  <p> Tax: <%=number_to_currency(carted_product.product.tax) %></p>
-  <p> Total: <%=number_to_currency(carted_product.product.total)%> </p>
+  <p> Price: <%=number_to_currency(carted_product.product.price) %></p>
   <img class="image-class" alt="Rails" src="<%=carted_product.product.images.first.image_link%>">
+  <%= form_tag "/checkout", method: :delete do %>
+      <form class="form-inline">
+          <%= hidden_field_tag :carted_product_id, carted_product.id %>
+        <div>
+          <%= submit_tag "Remove", class:"btn btn-default"%>
+        </div>
+      <% end %>
 
 <% end %>
 
 <p> Your email: <%= @current_user.email %> </p>
+
+
+<%= form_tag "/purchased", method: :post do %>
+<form class="form-inline">
+
+  <div>
+    <%= submit_tag "Buy Now", class:"btn btn-default"%>
+  </div>
+
+<% end %>

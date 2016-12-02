@@ -18,17 +18,4 @@ class Product < ApplicationRecord
   end
 
 
-
-  def subtotal
-    return price.to_i
-  end
-
-  def tax
-    return price.to_i * 0.09
-  end
-
-  def total
-    return price.to_i * 0.09 + price.to_i
-  end
-
 end
